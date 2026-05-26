@@ -1,7 +1,14 @@
 /* KEYPORT WOW — Shared styles for all pages */
 
-* { cursor: none !important; }
-body, a, button { cursor: none !important; }
+/*
+ * Cursor: none применяется ТОЛЬКО после первого движения мыши
+ * через класс .kp-cursor-ready на <body>.
+ * До этого нативный курсор виден — нет "пропадания" при загрузке.
+ */
+body.kp-cursor-ready *           { cursor: none !important; }
+body.kp-cursor-ready,
+body.kp-cursor-ready a,
+body.kp-cursor-ready button      { cursor: none !important; }
 
 #kp-cursor-dot {
   position: fixed; top: 0; left: 0;
@@ -9,7 +16,9 @@ body, a, button { cursor: none !important; }
   background: #0a0a0a; border-radius: 50%;
   pointer-events: none; z-index: 999998;
   mix-blend-mode: difference;
-  transition: width .2s, height .2s, background .2s;
+  opacity: 0;
+  transition: width .2s, height .2s, opacity .2s;
+  will-change: transform;
 }
 #kp-cursor-ring {
   position: fixed; top: 0; left: 0;
@@ -17,11 +26,17 @@ body, a, button { cursor: none !important; }
   border: 1px solid rgba(0,0,0,0.45); border-radius: 50%;
   pointer-events: none; z-index: 999997;
   mix-blend-mode: difference;
-  transition: width .3s, height .3s, border-color .3s;
+  opacity: 0;
+  transition: width .3s, height .3s, border-color .3s, opacity .3s;
+  will-change: transform;
 }
-#kp-cursor-dot.kp-cursor--hover { width: 16px; height: 16px; }
+body.kp-cursor-ready #kp-cursor-dot  { opacity: 1; }
+body.kp-cursor-ready #kp-cursor-ring { opacity: 1; }
+
+#kp-cursor-dot.kp-cursor--hover  { width: 16px; height: 16px; }
 #kp-cursor-ring.kp-cursor--hover { width: 60px; height: 60px; border-color: rgba(0,0,0,0.8); }
 
+/* Scroll Reveal */
 .kp-reveal {
   opacity: 0;
   transform: translateY(28px);
@@ -49,8 +64,11 @@ body, a, button { cursor: none !important; }
 }
 .kp-dot.kp-dot--active { background: #fff; transform: scale(1.6); }
 
+/* Mobile: скрываем кастомный курсор */
 @media (max-width: 768px) {
-  #kp-cursor-dot, #kp-cursor-ring { display: none; }
-  * { cursor: auto !important; }
-  body, a, button { cursor: auto !important; }
+  #kp-cursor-dot, #kp-cursor-ring { display: none !important; }
+  body.kp-cursor-ready *,
+  body.kp-cursor-ready,
+  body.kp-cursor-ready a,
+  body.kp-cursor-ready button { cursor: auto !important; }
 }

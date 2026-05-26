@@ -22,7 +22,13 @@
       this.loop();
     },
     make: function (id) { var el = document.createElement('div'); el.id = id; return el; },
-    onMove: function (e) { this.mx = e.clientX; this.my = e.clientY; },
+    onMove: function (e) {
+      this.mx = e.clientX; this.my = e.clientY;
+      /* Первое движение — включаем cursor:none через класс на body */
+      if (!document.body.classList.contains('kp-cursor-ready')) {
+        document.body.classList.add('kp-cursor-ready');
+      }
+    },
     bindHover: function (el) {
       var self = this;
       el.addEventListener('mouseenter', function () { self.dot.classList.add('kp-cursor--hover'); self.ring.classList.add('kp-cursor--hover'); });

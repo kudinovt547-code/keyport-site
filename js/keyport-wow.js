@@ -189,6 +189,9 @@
     onMove: function (e) {
       this.mx = e.clientX;
       this.my = e.clientY;
+      if (!document.body.classList.contains('kp-cursor-ready')) {
+        document.body.classList.add('kp-cursor-ready');
+      }
     },
 
     bindHover: function (el) {
