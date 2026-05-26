@@ -1,0 +1,53 @@
+ErrorDocument 403 /404.html
+ErrorDocument 404 /404.html
+
+DirectoryIndex page128884996.html
+
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} /robots.txt
+RewriteCond "%{DOCUMENT_ROOT}/robots_%{HTTP_HOST}.txt" -f
+RewriteRule ^(.*)$ robots_%{HTTP_HOST}.txt [NC,L]
+RewriteRule ^developer$ page128897006.html [NC]
+RewriteRule ^developer/$ page128897006.html [NC]
+
+RewriteRule ^products$ page128905966.html [NC]
+RewriteRule ^products/$ page128905966.html [NC]
+
+RewriteRule ^services$ page128911756.html [NC]
+RewriteRule ^services/$ page128911756.html [NC]
+
+RewriteRule ^about$ page134705436.html [NC]
+RewriteRule ^about/$ page134705436.html [NC]
+
+RewriteRule ^cases$ page134705606.html [NC]
+RewriteRule ^cases/$ page134705606.html [NC]
+
+RewriteRule ^theeconomyofspace$ page134705816.html [NC]
+RewriteRule ^theeconomyofspace/$ page134705816.html [NC]
+
+RewriteRule ^experience$ page134705926.html [NC]
+RewriteRule ^experience/$ page134705926.html [NC]
+
+RewriteRule ^brandphilosophy$ page134706166.html [NC]
+RewriteRule ^brandphilosophy/$ page134706166.html [NC]
+
+RewriteRule ^contacts$ page134706296.html [NC]
+RewriteRule ^contacts/$ page134706296.html [NC]
+
+RewriteRule ^feedback$ page134706476.html [NC]
+RewriteRule ^feedback/$ page134706476.html [NC]
+
+RewriteRule ^privacypolicy$ page129904656.html [NC]
+RewriteRule ^privacypolicy/$ page129904656.html [NC]
+
+RewriteRule ^menu$ page129315626.html [NC]
+RewriteRule ^menu/$ page129315626.html [NC]
+
+RewriteRule ^footer$ page129318266.html [NC]
+RewriteRule ^footer/$ page129318266.html [NC]
+
+RewriteRule ^blog$ page136068006.html [NC]
+RewriteRule ^blog/$ page136068006.html [NC]
+
+

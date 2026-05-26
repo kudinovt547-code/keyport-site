@@ -1,0 +1,56 @@
+/* KEYPORT WOW — Shared styles for all pages */
+
+* { cursor: none !important; }
+body, a, button { cursor: none !important; }
+
+#kp-cursor-dot {
+  position: fixed; top: 0; left: 0;
+  width: 8px; height: 8px;
+  background: #0a0a0a; border-radius: 50%;
+  pointer-events: none; z-index: 999998;
+  mix-blend-mode: difference;
+  transition: width .2s, height .2s, background .2s;
+}
+#kp-cursor-ring {
+  position: fixed; top: 0; left: 0;
+  width: 40px; height: 40px;
+  border: 1px solid rgba(0,0,0,0.45); border-radius: 50%;
+  pointer-events: none; z-index: 999997;
+  mix-blend-mode: difference;
+  transition: width .3s, height .3s, border-color .3s;
+}
+#kp-cursor-dot.kp-cursor--hover { width: 16px; height: 16px; }
+#kp-cursor-ring.kp-cursor--hover { width: 60px; height: 60px; border-color: rgba(0,0,0,0.8); }
+
+.kp-reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.8s cubic-bezier(0.22,1,0.36,1) var(--kp-delay,0ms),
+    transform 0.8s cubic-bezier(0.22,1,0.36,1) var(--kp-delay,0ms);
+}
+.kp-reveal.kp-revealed { opacity: 1; transform: translateY(0); }
+
+/* Stack progress dots */
+#kp-dots {
+  position: fixed; right: 24px; top: 50%;
+  transform: translateY(-50%);
+  z-index: 99990; display: flex; flex-direction: column; gap: 10px;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+#kp-dots.kp-dots--visible { opacity: 1; pointer-events: all; }
+.kp-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: rgba(255,255,255,0.3);
+  border: 1px solid rgba(255,255,255,0.55);
+  transition: background .3s, transform .3s;
+  cursor: pointer !important;
+}
+.kp-dot.kp-dot--active { background: #fff; transform: scale(1.6); }
+
+@media (max-width: 768px) {
+  #kp-cursor-dot, #kp-cursor-ring { display: none; }
+  * { cursor: auto !important; }
+  body, a, button { cursor: auto !important; }
+}

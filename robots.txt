@@ -1,0 +1,17 @@
+User-Agent: *
+Disallow: /page129315626.html
+Disallow: /menu
+Disallow: /page129318266.html
+Disallow: /footer
+Disallow: /tilda/form*
+Disallow: /tilda/rec*
+Disallow: /tilda/click*
+Disallow: /tilda/scroll*
+Disallow: /tilda/popup*
+Disallow: /tilda/cart*
+Disallow: /tilda/product*
+Disallow: /tilda/event*
+Disallow:
+
+
+Sitemap: http://keyport.group/sitemap.xml
