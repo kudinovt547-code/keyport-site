@@ -1,41 +1,5 @@
 /* KEYPORT WOW — Shared styles for all pages */
 
-/*
- * Cursor: none применяется ТОЛЬКО после первого движения мыши
- * через класс .kp-cursor-ready на <body>.
- * До этого нативный курсор виден — нет "пропадания" при загрузке.
- */
-body.kp-cursor-ready *           { cursor: none !important; }
-body.kp-cursor-ready,
-body.kp-cursor-ready a,
-body.kp-cursor-ready button      { cursor: none !important; }
-
-#kp-cursor-dot {
-  position: fixed; top: 0; left: 0;
-  width: 8px; height: 8px;
-  background: #0a0a0a; border-radius: 50%;
-  pointer-events: none; z-index: 999998;
-  mix-blend-mode: difference;
-  opacity: 0;
-  transition: width .2s, height .2s, opacity .2s;
-  will-change: transform;
-}
-#kp-cursor-ring {
-  position: fixed; top: 0; left: 0;
-  width: 40px; height: 40px;
-  border: 1px solid rgba(0,0,0,0.45); border-radius: 50%;
-  pointer-events: none; z-index: 999997;
-  mix-blend-mode: difference;
-  opacity: 0;
-  transition: width .3s, height .3s, border-color .3s, opacity .3s;
-  will-change: transform;
-}
-body.kp-cursor-ready #kp-cursor-dot  { opacity: 1; }
-body.kp-cursor-ready #kp-cursor-ring { opacity: 1; }
-
-#kp-cursor-dot.kp-cursor--hover  { width: 16px; height: 16px; }
-#kp-cursor-ring.kp-cursor--hover { width: 60px; height: 60px; border-color: rgba(0,0,0,0.8); }
-
 /* Scroll Reveal */
 .kp-reveal {
   opacity: 0;
@@ -60,15 +24,6 @@ body.kp-cursor-ready #kp-cursor-ring { opacity: 1; }
   background: rgba(255,255,255,0.3);
   border: 1px solid rgba(255,255,255,0.55);
   transition: background .3s, transform .3s;
-  cursor: pointer !important;
+  cursor: pointer;
 }
 .kp-dot.kp-dot--active { background: #fff; transform: scale(1.6); }
-
-/* Mobile: скрываем кастомный курсор */
-@media (max-width: 768px) {
-  #kp-cursor-dot, #kp-cursor-ring { display: none !important; }
-  body.kp-cursor-ready *,
-  body.kp-cursor-ready,
-  body.kp-cursor-ready a,
-  body.kp-cursor-ready button { cursor: auto !important; }
-}

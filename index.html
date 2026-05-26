@@ -507,41 +507,7 @@ window.tildastatcookie='no';setTimeout(function(){(function(d,w,k,o,g) {var n=d.
 <!-- ===== KEYPORT × WOW ANIMATIONS ===== -->
 <link rel="stylesheet" href="css/keyport-wow.css">
 <style>
-/* ── Custom Cursor (дополнение к keyport-wow.css) ── */
-#kp-cursor-dot {
-  position: fixed;
-  top: 0; left: 0;
-  width: 8px; height: 8px;
-  background: #0a0a0a;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 999998;
-  opacity: 0;
-  mix-blend-mode: difference;
-  transition: width .2s, height .2s, opacity .2s;
-  will-change: transform;
-}
-#kp-cursor-ring {
-  position: fixed;
-  top: 0; left: 0;
-  width: 40px; height: 40px;
-  border: 1px solid rgba(0,0,0,0.45);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 999997;
-  opacity: 0;
-  mix-blend-mode: difference;
-  transition: width .3s, height .3s, border-color .3s, opacity .3s;
-  will-change: transform;
-}
-body.kp-cursor-ready #kp-cursor-dot  { opacity: 1; }
-body.kp-cursor-ready #kp-cursor-ring { opacity: 1; }
-#kp-cursor-dot.kp-cursor--hover  { width: 16px; height: 16px; }
-#kp-cursor-ring.kp-cursor--hover { width: 60px; height: 60px; border-color: rgba(0,0,0,0.8); }
 
-@media (max-width: 768px) {
-  #kp-cursor-dot, #kp-cursor-ring { display: none !important; }
-}
 
 /* ── Scroll Reveal ────────────────────────────────── */
 .kp-reveal {
@@ -603,7 +569,6 @@ body.kp-cursor-ready #kp-cursor-ring { opacity: 1; }
   pointer-events: none !important;
 }
 
-/* cursor:none управляется через .kp-cursor-ready в keyport-wow.css */
 </style>
 
 <!-- ===== KEYPORT × YSL Vertical Stack Scroll ===== -->

@@ -141,83 +141,6 @@
     }
   };
 
-  /* ─────────────────────────────────────────────
-   *  2. CUSTOM MAGNETIC CURSOR
-   * ───────────────────────────────────────────── */
-  var cursor = {
-    dot: null,
-    ring: null,
-    mx: -100, my: -100,
-    rx: -100, ry: -100,
-    active: false,
-
-    init: function () {
-      /* Только десктоп */
-      if ('ontouchstart' in window) return;
-
-      this.dot = this.make('kp-cursor-dot');
-      this.ring = this.make('kp-cursor-ring');
-      document.body.appendChild(this.dot);
-      document.body.appendChild(this.ring);
-
-      document.addEventListener('mousemove', this.onMove.bind(this));
-
-      var interactable = 'a, button, [role="button"], .tn-atom, .t-btn, input, textarea, select';
-      document.querySelectorAll(interactable).forEach(this.bindHover.bind(this));
-
-      /* MutationObserver для динамически добавленных элементов */
-      var self = this;
-      new MutationObserver(function (muts) {
-        muts.forEach(function (m) {
-          m.addedNodes.forEach(function (n) {
-            if (n.nodeType !== 1) return;
-            if (n.matches && n.matches(interactable)) self.bindHover(n);
-            n.querySelectorAll && n.querySelectorAll(interactable).forEach(self.bindHover.bind(self));
-          });
-        });
-      }).observe(document.body, { childList: true, subtree: true });
-
-      this.loop();
-    },
-
-    make: function (id) {
-      var el = document.createElement('div');
-      el.id = id;
-      return el;
-    },
-
-    onMove: function (e) {
-      this.mx = e.clientX;
-      this.my = e.clientY;
-      if (!document.body.classList.contains('kp-cursor-ready')) {
-        document.body.classList.add('kp-cursor-ready');
-      }
-    },
-
-    bindHover: function (el) {
-      var self = this;
-      el.addEventListener('mouseenter', function () {
-        self.dot.classList.add('kp-cursor--hover');
-        self.ring.classList.add('kp-cursor--hover');
-      });
-      el.addEventListener('mouseleave', function () {
-        self.dot.classList.remove('kp-cursor--hover');
-        self.ring.classList.remove('kp-cursor--hover');
-      });
-    },
-
-    loop: function () {
-      var self = this;
-      /* Ring follows with lag */
-      this.rx += (this.mx - this.rx) * 0.12;
-      this.ry += (this.my - this.ry) * 0.12;
-
-      this.dot.style.transform = 'translate3d(' + (this.mx - 4) + 'px,' + (this.my - 4) + 'px,0)';
-      this.ring.style.transform = 'translate3d(' + (this.rx - 20) + 'px,' + (this.ry - 20) + 'px,0)';
-
-      requestAnimationFrame(this.loop.bind(this));
-    }
-  };
 
   /* ─────────────────────────────────────────────
    *  3. SCROLL REVEAL (IntersectionObserver)
@@ -329,7 +252,6 @@
    * ───────────────────────────────────────────── */
   function init() {
     snap.init();
-    cursor.init();
     dots.init();
     parallax.init();
 

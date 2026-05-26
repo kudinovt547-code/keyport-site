@@ -4,45 +4,6 @@
 (function () {
   'use strict';
 
-  /* Custom Cursor */
-  var cursor = {
-    dot: null, ring: null,
-    mx: -100, my: -100,
-    rx: -100, ry: -100,
-
-    init: function () {
-      if ('ontouchstart' in window) return;
-      this.dot = this.make('kp-cursor-dot');
-      this.ring = this.make('kp-cursor-ring');
-      document.body.appendChild(this.dot);
-      document.body.appendChild(this.ring);
-      document.addEventListener('mousemove', this.onMove.bind(this));
-      document.querySelectorAll('a, button, [role="button"], .tn-atom, .t-btn, input, textarea')
-        .forEach(this.bindHover.bind(this));
-      this.loop();
-    },
-    make: function (id) { var el = document.createElement('div'); el.id = id; return el; },
-    onMove: function (e) {
-      this.mx = e.clientX; this.my = e.clientY;
-      /* Первое движение — включаем cursor:none через класс на body */
-      if (!document.body.classList.contains('kp-cursor-ready')) {
-        document.body.classList.add('kp-cursor-ready');
-      }
-    },
-    bindHover: function (el) {
-      var self = this;
-      el.addEventListener('mouseenter', function () { self.dot.classList.add('kp-cursor--hover'); self.ring.classList.add('kp-cursor--hover'); });
-      el.addEventListener('mouseleave', function () { self.dot.classList.remove('kp-cursor--hover'); self.ring.classList.remove('kp-cursor--hover'); });
-    },
-    loop: function () {
-      this.rx += (this.mx - this.rx) * 0.12;
-      this.ry += (this.my - this.ry) * 0.12;
-      this.dot.style.transform = 'translate3d(' + (this.mx - 4) + 'px,' + (this.my - 4) + 'px,0)';
-      this.ring.style.transform = 'translate3d(' + (this.rx - 20) + 'px,' + (this.ry - 20) + 'px,0)';
-      requestAnimationFrame(this.loop.bind(this));
-    }
-  };
-
   /* Scroll Reveal */
   var reveal = {
     init: function () {
@@ -83,7 +44,6 @@
   };
 
   function init() {
-    cursor.init();
     setTimeout(function () { reveal.init(); parallax.init(); }, 200);
   }
 
