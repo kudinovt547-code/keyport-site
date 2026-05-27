@@ -8,7 +8,7 @@ export function renderForm(): string {
         <h2 class="kp-display text-[clamp(40px,7vw,110px)] max-w-[18ch]" data-reveal data-reveal-delay="1">
           ${form.title}
         </h2>
-        <p class="mt-6 max-w-xl text-cream-200/70 text-base leading-relaxed" data-reveal data-reveal-delay="2">
+        <p class="mt-6 max-w-xl text-muted text-base leading-relaxed" data-reveal data-reveal-delay="2">
           ${form.subtitle}
         </p>
 
@@ -22,8 +22,8 @@ export function renderForm(): string {
             `,
           ).join('')}
           <div class="md:col-span-2 mt-6 flex flex-col gap-6">
-            <label class="flex items-start gap-3 text-cream-200/55 text-sm leading-relaxed">
-              <input type="checkbox" required class="mt-1 accent-gold-500"/>
+            <label class="flex items-start gap-3 text-muted text-sm leading-relaxed">
+              <input type="checkbox" required class="mt-1 accent-black"/>
               <span>${form.consent}</span>
             </label>
             <div>

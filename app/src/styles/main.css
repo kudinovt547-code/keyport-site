@@ -120,6 +120,8 @@
   .bg-sand       { background: var(--bg-3); }
   .bg-ink        { background: var(--ink); }
   .text-ink      { color: var(--ink); }
+  .text-ink-2    { color: var(--ink-2); }
+  .text-ink-3    { color: var(--ink-3); }
   .text-muted    { color: var(--muted); }
   .text-accent   { color: var(--ink); }
   .border-line   { border-color: var(--line); }

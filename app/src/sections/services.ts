@@ -11,7 +11,7 @@ export function renderServices(): string {
               От концепции — до операционного управления.
             </h2>
           </div>
-          <p class="max-w-md text-cream-200/65 text-base leading-relaxed" data-reveal data-reveal-delay="2">
+          <p class="max-w-md text-muted text-base leading-relaxed" data-reveal data-reveal-delay="2">
             Шесть направлений. Один контур ответственности.
           </p>
         </div>
@@ -22,7 +22,7 @@ export function renderServices(): string {
               <div class="kp-service" data-reveal data-reveal-delay="${(i % 6) + 1}">
                 <div class="flex items-center justify-between">
                   <div class="kp-service__no">${s.no} / ${services.length.toString().padStart(2, '0')}</div>
-                  <div class="w-10 h-px bg-cream-100/20"></div>
+                  <div class="w-10 h-px bg-transparent"></div>
                 </div>
                 <h3 class="kp-service__h">${s.title}</h3>
                 <ul class="kp-service__list">
