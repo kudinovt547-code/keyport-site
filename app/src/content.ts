@@ -54,7 +54,7 @@ export const photos = {
   case4:       'images/tild6362-3462-4832-a638-623366633839__7413291b76232ec1020f.png',
   exp1:        'images/tild3736-3731-4964-b466-333232626662__69cd93432fac117bc276.jpg',
   exp2:        'images/tild6432-6563-4035-a363-313137376465__b2c20c2b079bd50806e6.jpg',
-  philo1:      'images/tild6634-3830-4336-a136-626135633066__af30cb46bf6ad1283217.jpg',
+  philo1:      'images/tild3963-6466-4761-a230-373138303232__bubntzor6ihyxz78qm56.jpg',
   philo2:      'images/tild6365-6164-4735-a134-303865356435__5403665c3640c68d5403.png',
   philo3:      'images/tild6132-3161-4531-b632-383862366137__f36c88902c223839fb21.jpg',
   philo4:      'images/tild3332-3830-4636-a131-376134336563__rectangle_6.png',
