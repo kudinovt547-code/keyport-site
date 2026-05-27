@@ -2,6 +2,7 @@ import { bootstrap } from './main';
 import { renderHero, animateHero } from './sections/hero';
 import { renderMarquee } from './sections/marquee';
 import { renderManifesto } from './sections/manifesto';
+import { renderGallery } from './sections/gallery';
 import { renderPillars } from './sections/pillars';
 import { renderServices } from './sections/services';
 import { renderComparison } from './sections/comparison';
@@ -25,9 +26,12 @@ root.innerHTML = [
     'Франшиза',
     'Доходность',
     'Управление',
+    'Practical Aesthetics',
+    'Managed Profitability',
   ]),
   renderManifesto(),
   renderPillars(),
+  renderGallery(),
   renderServices(),
   renderComparison(),
   renderNumbers(),

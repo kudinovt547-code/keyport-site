@@ -13,8 +13,8 @@ export function renderHero(): string {
     .join('');
 
   return `
-    <section class="kp-hero grain" id="hero">
-      <div class="kp-hero__bg"></div>
+    <section class="kp-hero" id="hero">
+      <div class="kp-hero__photo" style="background-image: url('${hero.background}')"></div>
       <div class="kp-hero__grid"></div>
 
       <div class="kp-hero__inner kp-container">
@@ -24,8 +24,8 @@ export function renderHero(): string {
             ${hero.eyebrow}
           </div>
           <div class="hidden md:flex flex-col gap-1 text-right">
-            <div class="text-cream-200/45 text-[11px] tracking-[0.32em] uppercase">N 59°56′ E 30°18′</div>
-            <div class="text-cream-200/45 text-[11px] tracking-[0.32em] uppercase">St. Petersburg · Yevpatoria</div>
+            <div class="text-muted text-[11px] tracking-[0.32em] uppercase">N 59°56′ E 30°18′</div>
+            <div class="text-muted text-[11px] tracking-[0.32em] uppercase">St. Petersburg · Yevpatoria</div>
           </div>
         </div>
 
@@ -49,10 +49,10 @@ export function renderHero(): string {
               <path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.2"/>
             </svg>
           </a>
-          <div class="flex items-center gap-3 text-cream-200/55 text-[11px] tracking-[0.32em] uppercase">
+          <div class="flex items-center gap-3 text-muted text-[11px] tracking-[0.32em] uppercase">
             <span>${hero.scroll}</span>
-            <div class="w-px h-10 bg-cream-200/30 relative overflow-hidden">
-              <span class="absolute inset-x-0 top-0 h-3 bg-cream-50 animate-[breath_2.6s_ease-in-out_infinite]"></span>
+            <div class="w-px h-10 relative overflow-hidden" style="background: var(--line-2)">
+              <span class="absolute inset-x-0 top-0 h-3" style="background: var(--ink); animation: breath 2.6s ease-in-out infinite"></span>
             </div>
           </div>
         </div>
@@ -73,14 +73,13 @@ export function animateHero(): void {
     .from('.kp-hero__metric', { y: 36, opacity: 0, duration: 1.1 }, '-=0.6')
     .from('.kp-btn', { y: 18, opacity: 0, duration: 0.8 }, '-=0.5');
 
-  // Parallax decoration
-  gsap.to('.kp-hero__bg', {
-    yPercent: 25,
+  gsap.to('.kp-hero__photo', {
+    yPercent: 18,
     ease: 'none',
     scrollTrigger: { trigger: '.kp-hero', start: 'top top', end: 'bottom top', scrub: true },
   });
   gsap.to('.kp-hero__grid', {
-    yPercent: -15,
+    yPercent: -10,
     ease: 'none',
     scrollTrigger: { trigger: '.kp-hero', start: 'top top', end: 'bottom top', scrub: true },
   });
