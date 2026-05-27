@@ -117,9 +117,9 @@ function pageContent(): string {
           </div>
         </section>
 
-        <section class="kp-section bg-section-dark">
+        <section class="kp-section bg-section-soft">
           <div class="kp-narrow">
-            <p class="kp-display text-[clamp(32px,5vw,84px)] text-balance leading-[1.08]" style="color: var(--bg)" data-reveal>
+            <p class="kp-display text-[clamp(32px,5vw,84px)] text-balance leading-[1.08]" data-reveal>
               ${aboutContent.bigStatement}
             </p>
           </div>
@@ -372,12 +372,12 @@ function pageContent(): string {
           </div>
         </section>
 
-        <section class="kp-section bg-section-dark">
+        <section class="kp-section bg-section-soft">
           <div class="kp-narrow">
             <div class="kp-numbers" style="grid-template-columns: repeat(2, minmax(0, 1fr));" data-reveal>
               ${numbers.map((n) => `
                 <div class="kp-numbers__cell">
-                  <div class="kp-numbers__value"><em>${n.value}</em>${n.unit ? ` <span style="color: rgba(243,237,226,0.55); font-size: 0.5em">${n.unit}</span>` : ''}</div>
+                  <div class="kp-numbers__value"><em>${n.value}</em>${n.unit ? ` <span class="text-muted text-[0.5em]">${n.unit}</span>` : ''}</div>
                   <div class="kp-numbers__label">${n.label}</div>
                 </div>
               `).join('')}
